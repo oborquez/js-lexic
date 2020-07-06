@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Analizador lexico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <script src="lexico.js"> </script>
+
+    <style>
+
+
+      #resultado{
+        background:#000;
+        color: #ddd;
+        padding: 10px;
+      }
+
+      #editor{
+        background: #ccc;
+        padding: 10px;
+      }
+
+      #editor button{
+        background: #fff;
+      }
+
+      #editor textarea{
+        height: 300px;
+      }
+
+      #resultado,#guardar,#cancelar{display:none;}
+
+      #notify{
+        display:none;
+        background:#e2ffd4;
+        color:#3b8516;
+        padding: 10px;
+      }
+
+      #f-archivo{display: none;}
+
+    </style>
+
+  </head>
+  <body>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="twelve column" id="notify">
+      <i class="fas fa-save"></i>
+      Guardado con exito
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="twelve column">
+      <h1>Analizador léxico</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <button id="b-crear"><i class="fas fa-file"></i> Crear</button>
+      <button id="b-abrir" ><i class="fas fa-folder"></i> Abrir</button><input type="file" id="f-archivo" accept='text/plain' >
+      <button id="b-preservadas" onclick="cargarplabrasresrvadas()"><i class="fas fa-list"></i> Palabras Reservadas</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="editor" class="twelve columns">
+        <h4 id="titulo-evento"></h4>
+        <textarea id="cadena" class="twelve columns"></textarea>
+
+        <div class="editor-buttons">
+          <button id="analizar" class="u-pull-right"><i class="fas fa-check-square"></i> Analizar</button>
+          <button id="guardar" class="u-pull-right"><i class="fas fa-save"></i> Guardar</button>
+          <button id="cancelar" class="u-pull-right"><i class="fas fa-times"></i> Cancelar</button>
+        </div>
+
+    </div>
+    <div class="twelve columns">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns" id="resultado">
+
+      <h4>Resultados</h4>
+
+      <table  class="u-full-width">
+        <tr>
+          <th>ID's</th>
+          <td><span id="ids">0</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th>Palabras reservadas</th>
+          <td><span id="reservadas">0</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th>Números</th>
+          <td><span id="numeros">0</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th>Lláves</th>
+          <td>{ <span id="llave1">0</span></td>
+          <td>} <span id="llave2">0</span></td>
+        </tr>
+        <tr>
+          <th>Corchetes</th>
+          <td>[ <span id="corchete1">0</span></td>
+          <td>] <span id="corchete2">0</span></td>
+        </tr>
+        <tr>
+          <th>Paréntesis</th>
+          <td>( <span id="parentesis1">0</span></td>
+          <td>) <span id="parentesis2">0</span></td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+  </body>
+</html>
